@@ -48,12 +48,12 @@ export default {
       method: 'put'
     })
   },
-    removeById(id) {
-      return request({
-        url: `${api_name}/remove/${id}`,
-        method: 'delete'
-      })
-    },
+  removeById(id) {
+    return request({
+      url: `${api_name}/remove/${id}`,
+      method: 'delete'
+    })
+  },
     //查询所有课程
     findAll() {
       return request({

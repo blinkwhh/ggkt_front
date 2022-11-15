@@ -237,6 +237,10 @@ export default {
       }).then(response => {
         this.fetchData()
         this.$message.success(response.message)
+      }).catch((response) => { // 失败
+        if (response === 'cancel') {
+          this.$message.info('取消删除')
+        }
       })
     }
   }
