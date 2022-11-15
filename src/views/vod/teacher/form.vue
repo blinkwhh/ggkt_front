@@ -125,7 +125,7 @@ export default {
     },
     //修改
     update() {
-      //添加
+      // teacher数据的获取
       teacherApi.updateTeacher(this.teacher)
         .then(response => {
           //提示

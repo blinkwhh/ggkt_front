@@ -122,32 +122,41 @@ export default {
           cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {
-          var idList = []
-          // [1,2,3]
-          //遍历数组
-          for(var i=0;i<this.multipleSelection.length;i++) {
-            var obj = this.multipleSelection[i]
-            var id = obj.id
-            //放到数组
-            idList.push(id)
-          }
-          //调用接口删除
-          teacherApi.batchRemove(idList)
-            .then(response => {
+            // 点击确定，远程调用ajax
+            // 遍历selection，将id取出放入id列表
+            var idList = []
+            // [1,2,3]
+            //遍历数组
+            for(var i=0;i<this.multipleSelection.length;i++) {
+              var obj = this.multipleSelection[i]
+              var id = obj.id
+              //放到数组
+              idList.push(id)
+            }
+            //调用接口删除
+            return teacherApi.batchRemove(idList)
+              .then(response => {
+                //刷新
+                this.fetchData(),
                 //提示
                 this.$message({
                   type: 'success',
                   message: '删除成功!'
-                });
-                //刷新
-                this.fetchData()
-            })
-        })
+                });               
+              })
+          }).catch(error =>{
+            if(error === 'cancel') {
+              this.$message.info('取消删除')
+            }
+          })
     },
+
     //复选框发生变化，调用方法，选中复选框行内容传递
     handleSelectionChange(selection) {
+      console.log(selection)
       this.multipleSelection = selection
     },
+
     //跳转到添加表单页面
     add() {
       this.$router.push({path:'/vod/teacher/create'})
