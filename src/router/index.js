@@ -30,7 +30,7 @@ import Layout from '@/layout'
  * a base page that does not have permission requirements
  * all roles can be accessed
  */
-export const constantRoutes = [
+export const constantRouterMap = [
   {
     path: '/login',
     component: () => import('@/views/login/index'),
@@ -42,24 +42,24 @@ export const constantRoutes = [
     component: () => import('@/views/404'),
     hidden: true
   },
-
+  // 首页
   {
     path: '/',
     component: Layout,
     redirect: '/dashboard',
+    name: 'Dashboard',
     children: [{
       path: 'dashboard',
-      name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      meta: { title: '硅谷课堂后台管理系统', icon: 'dashboard' }
     }]
   },
-
+  // 讲师管理
   {
     path: '/vod',
     component: Layout,
     redirect: '/vod/teacher/list',
-    name: 'vod',
+    name: 'Vod',
     meta: { title: '讲师管理', icon: 'el-icon-s-help' },
     children: [
       {
