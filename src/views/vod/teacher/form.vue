@@ -85,18 +85,15 @@ export default {
         this.$message.error('上传失败 （非0）')
       }
     },
-
     // 错误处理
     handleAvatarError() {
       console.log('error')
       this.$message.error('上传失败（http失败）')
     },
-
     // 上传校验
     beforeAvatarUpload(file) {
       const isJPG = file.type === 'image/jpeg'
       const isLt2M = file.size / 1024 / 1024 < 2
-
       if (!isJPG) {
         this.$message.error('上传头像图片只能是 JPG 格式!')
       }
