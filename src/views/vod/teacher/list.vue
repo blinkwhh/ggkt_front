@@ -2,44 +2,44 @@
   <div class="app-container">
     讲师列表
     <!--查询表单-->
-  <el-card class="operate-container" shadow="never">
-    <el-form :inline="true" class="demo-form-inline">
-      <el-form-item label="名称">
-        <el-input v-model="searchObj.name" placeholder="讲师名" />
-      </el-form-item>
+    <el-card class="operate-container" shadow="never">
+      <el-form :inline="true" class="demo-form-inline">
+        <el-form-item label="名称">
+          <el-input v-model="searchObj.name" placeholder="讲师名" />
+        </el-form-item>
 
-      <el-form-item label="头衔">
-        <el-select v-model="searchObj.level" clearable placeholder="头衔">
-          <el-option value="1" label="高级讲师"/>
-          <el-option value="0" label="首席讲师"/>
-        </el-select>
-      </el-form-item>
+        <el-form-item label="头衔">
+          <el-select v-model="searchObj.level" clearable placeholder="头衔">
+            <el-option value="1" label="高级讲师"/>
+            <el-option value="0" label="首席讲师"/>
+          </el-select>
+        </el-form-item>
 
-      <el-form-item label="入驻时间">
-        <el-date-picker
-          v-model="searchObj.joinDateBegin"
-          placeholder="开始时间"
-          value-format="yyyy-MM-dd" />
-      </el-form-item>
-      <el-form-item label="-">
-        <el-date-picker
-          v-model="searchObj.joinDateEnd"
-          placeholder="结束时间"
-          value-format="yyyy-MM-dd" />
-      </el-form-item>
+        <el-form-item label="入驻时间">
+          <el-date-picker
+            v-model="searchObj.joinDateBegin"
+            placeholder="开始时间"
+            value-format="yyyy-MM-dd" />
+        </el-form-item>
+        <el-form-item label="-">
+          <el-date-picker
+            v-model="searchObj.joinDateEnd"
+            placeholder="结束时间"
+            value-format="yyyy-MM-dd" />
+        </el-form-item>
 
-        <el-button type="primary" icon="el-icon-search" @click="fetchData()">查询</el-button>
-        <el-button type="default" @click="resetData()">清空</el-button>
-    </el-form>
-  </el-card>
+          <el-button type="primary" icon="el-icon-search" @click="fetchData()">查询</el-button>
+          <el-button type="default" @click="resetData()">清空</el-button>
+      </el-form>
+    </el-card>
 
-<!-- 工具按钮 -->
-<el-card class="operate-container" shadow="never">
-  <i class="el-icon-tickets" style="margin-top: 5px"></i>
-  <span style="margin-top: 5px">数据列表</span>
-  <el-button class="btn-add" @click="add()" style="margin-left: 10px;">添加</el-button>
-  <el-button class="btn-add" @click="batchRemove()" >批量删除</el-button>
-</el-card>
+    <!-- 工具按钮 -->
+    <el-card class="operate-container" shadow="never">
+      <i class="el-icon-tickets" style="margin-top: 5px"></i>
+      <span style="margin-top: 5px">数据列表</span>
+      <el-button class="btn-add" @click="add()" style="margin-left: 10px;">添加</el-button>
+      <el-button class="btn-add" @click="batchRemove()" >批量删除</el-button>
+    </el-card>
 
     <!-- 表格 -->
     <el-table
@@ -93,7 +93,8 @@
 //引入定义接口js文件
 import teacherApi from '@/api/vod/teacher'
 export default {
-  data() {  //初始值
+  // 定义数据类型
+  data() {  
     return {
       list: [], // 讲师列表
       total: 0, // 总记录数
@@ -103,10 +104,13 @@ export default {
       multipleSelection: []// 批量删除选中的记录列表
     }
   },
-  created() { //页面渲染之前
+  // 页面渲染之前执行
+  created() { 
+    // 页面渲染成功后获取数据
     this.fetchData()
   },
-  methods:{ //具体方法
+  //定义具体方法
+  methods:{ 
     //批量删除
     batchRemove() {
       //判断非空
@@ -157,17 +161,17 @@ export default {
           this.total = response.data.total
         })
     },
-    //改变每页显示记录数
+    //改变每页显示记录数  size：回调参数，表示当前选中的“每页条数”
     changePageSize(size) {
       this.limit = size
       this.fetchData()
     },
-    //改变页码数
+    //改变页码数  page：回调参数，表示当前选中的“页码”
     changeCurrentPage(page) {
       this.page = page
       this.fetchData()
     },
-    //清空
+    //重置表单
     resetData() {
       this.searchObj = {}
       this.fetchData()
