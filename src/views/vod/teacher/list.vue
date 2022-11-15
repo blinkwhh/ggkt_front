@@ -176,7 +176,7 @@ export default {
       this.searchObj = {}
       this.fetchData()
     },
-    //讲师删除
+    //根据id删除数据
     removeById(id) {
       this.$confirm('此操作将删除该讲师信息, 是否继续?', '提示', {
           confirmButtonText: '确定',
@@ -184,7 +184,7 @@ export default {
           type: 'warning'
         }).then(() => {
           //调用接口删除
-          teacherApi.removeTeacherId(id)
+          teacherApi.removeTeacherById(id)
             .then(response => {
                 //提示
                 this.$message({

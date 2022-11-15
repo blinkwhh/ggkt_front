@@ -15,7 +15,7 @@ export default {
           })
     },
     //讲师删除
-    removeTeacherId(id) {
+    removeTeacherById(id) {
         return request({
             url: `${api_name}/remove/${id}`,
             method: 'delete'
