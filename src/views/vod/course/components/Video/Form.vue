@@ -14,6 +14,7 @@
           <el-radio :label="1">默认</el-radio>
         </el-radio-group>
       </el-form-item>
+
       <!-- 上传视频 -->
       <el-form-item label="上传视频">
         <el-upload
@@ -49,7 +50,7 @@ import vodApi from '@/api/vod/vod'
 export default {
   data() {
     return {
-      BASE_API: 'http://localhost:8333',
+      BASE_API: 'http://localhost:8301',
       dialogVisible: false,
       video: {
         sort: 0,

@@ -26,14 +26,14 @@ export default {
       method: 'get'
     })
   },
-    //修改课程信息
-    updateCourseInfoById(courseInfo) {
-      return request({
-        url: `${api_name}/update`,
-        method: 'post',
-        data: courseInfo
-      })
-    },
+  //修改课程信息
+  updateCourseInfoById(courseInfo) {
+    return request({
+      url: `${api_name}/update`,
+      method: 'post',
+      data: courseInfo
+    })
+  },
     //获取发布课程信息  
     getCoursePublishById(id) {
       return request({
