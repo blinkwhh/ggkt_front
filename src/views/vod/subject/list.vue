@@ -19,6 +19,7 @@
         </el-table-column>
     </el-table>
 
+    <!-- 添加导入导出按钮 -->
     <div class="el-toolbar">
         <div class="el-toolbar-body" style="justify-content: flex-start;">
             <el-button type="text" @click="exportData"><i class="fa fa-plus"/> 导出</el-button>
@@ -26,6 +27,7 @@
         </div>
     </div>
 
+    <!-- 添加导入弹出层 -->
     <el-dialog title="导入" :visible.sync="dialogImportVisible" width="480px">
         <el-form label-position="right" label-width="170px">
             <el-form-item label="文件">
@@ -49,6 +51,7 @@
 <script>
 import subjectApi from '@/api/vod/subject'
 export default {
+    // 添加导入弹出层属性
     data() {
         return {
             dialogImportVisible: false,
@@ -59,6 +62,7 @@ export default {
         this.getSubList(0)
     },
     methods: {
+        // 添加导入方法
         importData() {
             this.dialogImportVisible = true
         },
@@ -68,7 +72,7 @@ export default {
             this.getSubList(0)
         },
 
-        //导出
+        //导出  编写调用方法
         exportData() {
             window.open("http://localhost:8301/admin/vod/subject/exportData")
         },

@@ -28,8 +28,7 @@
         <el-input v-model="teacher.career" :rows="10" type="textarea"/>
       </el-form-item>
 
-      <!-- 讲师头像 -->
-      <!-- 讲师头像 -->
+    <!-- 讲师头像 -->
     <el-form-item label="讲师头像">
       <el-upload
         :show-file-list="false"
