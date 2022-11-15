@@ -34,20 +34,20 @@ export default {
       data: courseInfo
     })
   },
-    //获取发布课程信息  
-    getCoursePublishById(id) {
-      return request({
-        url: `${api_name}/getCoursePublishVo/${id}`,
-        method: 'get'
-      })
-    },
-    //发布课程  
-    publishCourseById(id) {
-      return request({
-        url: `${api_name}/publishCourse/${id}`,
-        method: 'put'
-      })
-    },
+  //获取发布课程信息  
+  getCoursePublishById(id) {
+    return request({
+      url: `${api_name}/getCoursePublishVo/${id}`,
+      method: 'get'
+    })
+  },
+  //发布课程  
+  publishCourseById(id) {
+    return request({
+      url: `${api_name}/publishCourseById/${id}`,
+      method: 'put'
+    })
+  },
     removeById(id) {
       return request({
         url: `${api_name}/remove/${id}`,
