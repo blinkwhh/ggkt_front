@@ -173,14 +173,17 @@ export default {
     this.initSubjectList()
     // 获取讲师列表
     this.initTeacherList()
+    
   },
 
   methods: {
     fetchData() {
       courseApi.getPageList(this.page, this.limit, this.searchObj).then(response => {
         this.list = response.data.records
-        console.log(this.list)
+        // console.log(this.list)
         this.total = response.data.totalCount
+      }).then(response => {
+        this.$message.success("成功啦")
       })
     },
 
