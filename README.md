@@ -83,4 +83,7 @@ Modern browsers and Internet Explorer 10+.
 | --------- | --------- | --------- | --------- |
 | IE10, IE11, Edge| last 2 versions| last 2 versions| last 2 versions
 
+
+终止程序运行：Ctrl+C
+
 Copyright (c) 2022-present Wanghanhan
